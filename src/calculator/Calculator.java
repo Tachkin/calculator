@@ -10,7 +10,7 @@ public class Calculator {
 	
 	public void start() {
 		
-		System.out.println("Введите выражение в формате \"x + y\", 0 - для выхода:");
+		System.out.println("Р’РІРµРґРёС‚Рµ РІС‹СЂР°Р¶РµРЅРёРµ РІ С„РѕСЂРјР°С‚Рµ \"x + y\", 0 - РґР»СЏ РІС‹С…РѕРґР°:");
 		
 		try(Scanner exprScanner = new Scanner(System.in)) {
 			
@@ -18,7 +18,7 @@ public class Calculator {
 			
 			if(expression.equals("0")) {
 				exit = true;
-				System.out.println("Выход из программы");
+				System.out.println("Р’С‹С…РѕРґ РёР· РїСЂРѕРіСЂР°РјРјС‹...");
 			}
 			else {
 				
@@ -30,10 +30,10 @@ public class Calculator {
 					
 					result = calculate(x, y, operation);
 					
-					System.out.printf("Результат: %,.2f \n", result);
+					System.out.printf("Р РµР·СѓР»СЊС‚Р°С‚: %,.2f \n", result);
 					
 				} catch (Exception e) {
-					System.out.println("Неверное выражение, выход из программы");
+					System.out.println("РќРµРІРµСЂРЅРѕРµ РІС‹СЂР°Р¶РµРЅРёРµ, РІС‹С…РѕРґ РёР· РїСЂРѕРіСЂР°РјРјС‹...");
 					exit = true;
 				}
 				
@@ -42,13 +42,13 @@ public class Calculator {
 			
 			while(!exit) {
 				
-				System.out.println("Введите следующую операцию в формате \"+ z\", 0 - для выхода:");
+				System.out.println("Р’РІРµРґРёС‚Рµ РІС‹СЂР°Р¶РµРЅРёРµ РІ С„РѕСЂРјР°С‚Рµ \"+ z\", 0 - РґР»СЏ РІС‹С…РѕРґР°: ");
 				
 				expression = exprScanner.nextLine();
 				
 				if(expression.equals("0")) {
 					exit = true;
-					System.out.println("Выход из программы");
+					System.out.println("Р’С‹С…РѕРґ РёР· РїСЂРѕРіСЂР°РјРјС‹...");
 				}
 				else {
 					
@@ -59,10 +59,10 @@ public class Calculator {
 						
 						result = calculate(result, y, operation);
 						
-						System.out.printf("Результат: %,.2f \n", result);
+						System.out.printf("Р РµР·СѓР»СЊС‚Р°С‚: %,.2f \n", result);
 						
 					} catch (Exception e) {
-						System.out.println("Неверное выражение, выход из программы");
+						System.out.println("РќРµРІРµСЂРЅРѕРµ РІС‹СЂР°Р¶РµРЅРёРµ, РІС‹С…РѕРґ РёР· РїСЂРѕРіСЂР°РјРјС‹...");
 						exit = true;
 					}
 				}
