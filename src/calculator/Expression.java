@@ -4,34 +4,37 @@ import java.util.Scanner;
 
 public class Expression implements ExpressionReader, ExpressionHandler{
 	
-	private String expression;
-	private String[] exprArray;
-	
-	@Override
-	public String read(Scanner scanner) {
-		
-		expression = scanner.nextLine();
-		
-		return expression;
-		
+	private String operation;
+	private double[] arguments;
+	private Scanner scanner;
+
+	public Expression(Scanner scanner) {
+		this.scanner = scanner;
 	}
-	
+
+	@Override
+	public String read() {
+		return scanner.nextLine();
+	}
+
 	@Override
 	public String[] process(String expression) {
-		
-		try(Scanner scanner = new Scanner(expression)) {
-			
-			exprArray = new String[3];
-			
-			for(int i = 0; i < exprArray.length; i++) 
-				exprArray[i] = scanner.next();
-			
-		} catch(Exception e) {
-			System.out.println("Неверное выражение...");
+
+		String[] exprArray = expression.trim().split(" ");
+		operation = exprArray[0];
+		arguments = new double[exprArray.length-1];
+		for (int i = 1; i < exprArray.length; i++) {
+			arguments[i-1] = Double.parseDouble(exprArray[i]);
 		}
-		
 		return exprArray;
-		
+
 	}
-	
+
+	public String getOperation() {
+		return operation;
+	}
+
+	public double[] getArguments() {
+		return arguments;
+	}
 }
